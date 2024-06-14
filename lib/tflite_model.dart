@@ -112,104 +112,111 @@ class _ImageClassifierScreenState extends State<ImageClassifierScreen> {
         title: Text('Image Classifier'),
       ),
       body: Center(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 12,
-            ),
-            Card(
-              elevation: 20,
-              clipBehavior: Clip.hardEdge,
-              child: SizedBox(
-                width: 400,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 18,
-                      ),
-                      Container(
-                        height: 300,
-                        width: 300,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'assets/image_upload.png',
-                            ),
-                            fit: BoxFit
-                                .contain, // How to fit the image within the container
-                            alignment: Alignment.center,
-                          ),
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(12),
+        child: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+            image: AssetImage('assets/flower.jpeg'),
+            fit: BoxFit.cover,
+          )),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 12,
+              ),
+              Card(
+                elevation: 20,
+                clipBehavior: Clip.hardEdge,
+                child: SizedBox(
+                  width: 400,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 18,
                         ),
-                        child: filePath == null
-                            ? const Text('')
-                            : Image.file(
-                                filePath!,
-                                fit: BoxFit.fill,
+                        Container(
+                          height: 300,
+                          width: 300,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                'assets/image_upload.png',
                               ),
-                      ),
-                      SizedBox(
-                        height: 18,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(8),
-                        child: Column(
-                          children: [
-                            Text(
-                              'image is ${label}',
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
+                              fit: BoxFit
+                                  .contain, // How to fit the image within the container
+                              alignment: Alignment.center,
                             ),
-                            SizedBox(
-                              height: 12,
-                            ),
-                            // Text(
-                            //   'the accuracy is ${confidence.toStringAsFixed(0)}%',
-                            //   style: TextStyle(
-                            //       fontSize: 18, fontWeight: FontWeight.bold),
-                            // ),
-                            // SizedBox(
-                            //   height: 8,
-                            // ),
-                          ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: filePath == null
+                              ? const Text('')
+                              : Image.file(
+                                  filePath!,
+                                  fit: BoxFit.fill,
+                                ),
                         ),
-                      )
-                    ],
+                        SizedBox(
+                          height: 18,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(8),
+                          child: Column(
+                            children: [
+                              Text(
+                                'image is ${label}',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 12,
+                              ),
+                              // Text(
+                              //   'the accuracy is ${confidence.toStringAsFixed(0)}%',
+                              //   style: TextStyle(
+                              //       fontSize: 18, fontWeight: FontWeight.bold),
+                              // ),
+                              // SizedBox(
+                              //   height: 8,
+                              // ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                pickImageCamera();
-              },
-              style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(13)),
-                  foregroundColor: Colors.black),
-              child: Text('Take a photo'),
-            ),
-            SizedBox(
-              height: 12,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                pickImageGallery();
-              },
-              style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(13)),
-                  foregroundColor: Colors.black),
-              child: Text('take from gallery'),
-            )
-          ],
+              SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  pickImageCamera();
+                },
+                style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(13)),
+                    foregroundColor: Colors.black),
+                child: Text('Take a photo'),
+              ),
+              SizedBox(
+                height: 12,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  pickImageGallery();
+                },
+                style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(13)),
+                    foregroundColor: Colors.black),
+                child: Text('take from gallery'),
+              )
+            ],
+          ),
         ),
       ),
     );
